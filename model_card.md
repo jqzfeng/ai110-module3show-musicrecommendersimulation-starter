@@ -5,6 +5,8 @@
 Give your model a short, descriptive name.
 Example: **VibeFinder 1.0**
 
+HarmonyPulse 1.0
+
 ---
 
 ## 2. Intended Use
@@ -16,6 +18,8 @@ Prompts:
 - What kind of recommendations does it generate
 - What assumptions does it make about the user
 - Is this for real users or classroom exploration
+
+This recommender suggests songs from a small catalog based on a user’s preferred genre, mood, energy, and acoustic style. It assumes the user can describe what they want with a few simple preferences. It is meant for learning and experimentation, not for a real music streaming service.
 
 ---
 
@@ -32,6 +36,8 @@ Prompts:
 
 Avoid code here. Pretend you are explaining the idea to a friend who does not program.
 
+The model looks at each song’s genre, mood, energy level, and acousticness. It checks whether those song features match the user’s preferred genre and mood. It then compares the song energy to the user’s target energy and gives more points when the energy is closer. Songs that also match the acoustic preference get a small extra boost.
+
 ---
 
 ## 4. Data
@@ -45,6 +51,8 @@ Prompts:
 - Did you add or remove data
 - Are there parts of musical taste missing in the dataset
 
+The catalog has 17 songs. It includes pop, lofi, rock, ambient, jazz, synthwave, country, folk, hip-hop, classical, and more. The dataset includes moods such as happy, chill, intense, calm, moody, and relaxed. I did not add or remove data. It is missing many real music features like lyrics, artist popularity, user listening history, and cultural variety.
+
 ---
 
 ## 5. Strengths
@@ -56,6 +64,8 @@ Prompts:
 - User types for which it gives reasonable results
 - Any patterns you think your scoring captures correctly
 - Cases where the recommendations matched your intuition
+
+This system works well for clear profiles with strong favorites, such as high-energy pop or chill lofi listeners. It captures obvious genre and mood matches and rewards songs that are close to the desired energy. The top recommendations usually feel reasonable when the profile is straightforward.
 
 ---
 
@@ -97,6 +107,8 @@ Prompts:
 - Improving diversity among the top results
 - Handling more complex user tastes
 
+Add more song features such as tempo, valence, and instrumental/acoustic balance. Use a larger and more diverse dataset so the system does not repeat the same few songs. Add diversity controls to avoid filter bubbles and give different styles for similar profiles.
+
 ---
 
 ## 9. Personal Reflection
@@ -108,3 +120,5 @@ Prompts:
 - What you learned about recommender systems
 - Something unexpected or interesting you discovered
 - How this changed the way you think about music recommendation apps
+
+My biggest learning moment was seeing how a few simple weights can make a song move from the middle of the list to the top. The AI tools helped speed up the code changes, but I still needed to check the outputs myself in the terminal to make sure the recommendations felt right. It was surprising that a small dataset and a simple score can still produce suggestions that “sound” like they match a listener profile. If I kept building this, I would try adding more song attributes and testing profiles with mixed or conflicting preferences.
