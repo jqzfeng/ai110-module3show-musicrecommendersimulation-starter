@@ -102,8 +102,8 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
     likes_acoustic = user_prefs.get("likes_acoustic", False)
 
     if favorite_genre and song.get("genre") == favorite_genre:
-        score += 2.0
-        reasons.append("genre match (+2.0)")
+        score += 1.0
+        reasons.append("genre match (+1.0)")
 
     if favorite_mood and song.get("mood") == favorite_mood:
         score += 1.0
@@ -114,8 +114,9 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
         target_value = float(target_energy)
         energy_diff = abs(energy_value - target_value)
         energy_similarity = max(0.0, 1.0 - energy_diff)
-        score += energy_similarity
-        reasons.append(f"energy similarity (+{energy_similarity:.2f})")
+        weighted_energy = energy_similarity * 2.0
+        score += weighted_energy
+        reasons.append(f"energy similarity (+{weighted_energy:.2f})")
 
     if likes_acoustic is not None and song.get("acousticness") is not None:
         acousticness = float(song["acousticness"])

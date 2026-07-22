@@ -155,6 +155,77 @@ You can document experiments such as:
 
 ---
 
+## Stress Test: Diverse Profiles
+
+The recommender was run with three distinct user preference profiles to surface how the scoring behaves across different listener types.
+
+### High-Energy Pop
+
+```text
+Loaded songs: 17
+
+=== Profile: High-Energy Pop ===
+1. Sunrise City
+   Score: 4.42
+   Why: genre match (+2.0); mood match (+1.0); energy similarity (+0.92); acoustic preference (+0.5)
+2. Gym Hero
+   Score: 3.47
+   Why: genre match (+2.0); energy similarity (+0.97); acoustic preference (+0.5)
+3. Rooftop Lights
+   Score: 1.86
+   Why: mood match (+1.0); energy similarity (+0.86)
+4. Neon District
+   Score: 1.50
+   Why: energy similarity (+1.00); acoustic preference (+0.5)
+5. Storm Runner
+   Score: 1.49
+   Why: energy similarity (+0.99); acoustic preference (+0.5)
+```
+
+### Chill Lofi
+
+```text
+=== Profile: Chill Lofi ===
+1. Library Rain
+   Score: 4.50
+   Why: genre match (+2.0); mood match (+1.0); energy similarity (+1.00); acoustic preference (+0.5)
+2. Midnight Coding
+   Score: 4.43
+   Why: genre match (+2.0); mood match (+1.0); energy similarity (+0.93); acoustic preference (+0.5)
+3. Focus Flow
+   Score: 3.45
+   Why: genre match (+2.0); energy similarity (+0.95); acoustic preference (+0.5)
+4. Spacewalk Thoughts
+   Score: 2.43
+   Why: mood match (+1.0); energy similarity (+0.93); acoustic preference (+0.5)
+5. Coffee Shop Stories
+   Score: 1.48
+   Why: energy similarity (+0.98); acoustic preference (+0.5)
+```
+
+### Deep Intense Rock
+
+```text
+=== Profile: Deep Intense Rock ===
+1. Storm Runner
+   Score: 4.49
+   Why: genre match (+2.0); mood match (+1.0); energy similarity (+0.99); acoustic preference (+0.5)
+2. Gym Hero
+   Score: 2.47
+   Why: mood match (+1.0); energy similarity (+0.97); acoustic preference (+0.5)
+3. Neon District
+   Score: 1.50
+   Why: energy similarity (+1.00); acoustic preference (+0.5)
+4. Velvet Skyline
+   Score: 1.48
+   Why: energy similarity (+0.98); acoustic preference (+0.5)
+5. Sunrise City
+   Score: 1.42
+   Why: energy similarity (+0.92); acoustic preference (+0.5)
+```
+
+---
+
 ## Limitations and Risks
 
 This system is intentionally small and simplified. It does not understand lyrics, cultural context, or the deeper meaning behind a song. It may also over-favor a single genre or mood if the scoring rules are too narrow.

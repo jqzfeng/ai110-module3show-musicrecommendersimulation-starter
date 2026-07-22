@@ -16,17 +16,44 @@ def main() -> None:
     songs = load_songs("data/songs.csv")
     print(f"Loaded songs: {len(songs)}")
 
-    # Starter example profile
-    user_prefs = {"genre": "pop", "mood": "happy", "energy": 0.8}
+    user_profiles = [
+        (
+            "High-Energy Pop",
+            {
+                "favorite_genre": "pop",
+                "favorite_mood": "happy",
+                "target_energy": 0.9,
+                "likes_acoustic": False,
+            },
+        ),
+        (
+            "Chill Lofi",
+            {
+                "favorite_genre": "lofi",
+                "favorite_mood": "chill",
+                "target_energy": 0.35,
+                "likes_acoustic": True,
+            },
+        ),
+        (
+            "Deep Intense Rock",
+            {
+                "favorite_genre": "rock",
+                "favorite_mood": "intense",
+                "target_energy": 0.9,
+                "likes_acoustic": False,
+            },
+        ),
+    ]
 
-    recommendations = recommend_songs(user_prefs, songs, k=5)
-
-    print("\nTop recommendations:\n")
-    for index, rec in enumerate(recommendations, start=1):
-        song, score, explanation = rec
-        print(f"{index}. {song['title']}")
-        print(f"   Score: {score:.2f}")
-        print(f"   Why: {explanation}")
+    for profile_name, user_prefs in user_profiles:
+        print(f"\n=== Profile: {profile_name} ===")
+        recommendations = recommend_songs(user_prefs, songs, k=5)
+        for index, rec in enumerate(recommendations, start=1):
+            song, score, explanation = rec
+            print(f"{index}. {song['title']}")
+            print(f"   Score: {score:.2f}")
+            print(f"   Why: {explanation}")
         print()
 
 
